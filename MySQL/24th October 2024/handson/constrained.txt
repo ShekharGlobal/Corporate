@@ -1,0 +1,153 @@
+Primary Key-I
+============================
+
+CREATE TABLE Products
+ (
+  productCode VARCHAR(15) PRIMARY KEY,
+  productName VARCHAR(70) ,
+  productLine VARCHAR(50) ,
+  productScale VARCHAR(10) ,
+  productVendor VARCHAR(50) ,
+  productDescription TEXT ,
+  quantityInStock SMALLINT ,
+  buyPrice DOUBLE ,
+  MSRP DOUBLE 
+);
+
+
+====================================================
+Primary key -II
+=====================================================
+CREATE TABLE Products2
+ (
+  productCode VARCHAR(15),
+  productName VARCHAR(70) ,
+  productLine VARCHAR(50) ,
+  productScale VARCHAR(10) ,
+  productVendor VARCHAR(50) ,
+  productDescription TEXT ,
+  quantityInStock SMALLINT ,
+  buyPrice DOUBLE ,
+  MSRP DOUBLE ,
+ CONSTRAINT productCode_pk PRIMARY KEY(productCode)
+);
+
+===========================================================
+Primary Key-I
+==========================================================
+CREATE TABLE Offices (
+  officeCode VARCHAR(10) PRIMARY KEY,
+  city VARCHAR(50) ,
+  phone VARCHAR(50) ,
+  addressLine1 VARCHAR(50) ,
+  addressLine2 VARCHAR(50) ,
+  state VARCHAR(50) ,
+  country VARCHAR(50) ,
+  postalCode VARCHAR(15) ,
+  territory VARCHAR(10) 
+);
+==============================================================
+Foreign key
+=========================================================
+CREATE TABLE Employees (
+  employeeNumber INTEGER PRIMARY KEY,
+  lastName VARCHAR(50) ,
+  firstName VARCHAR(50) ,
+  extension VARCHAR(10) ,
+  email VARCHAR(100) ,
+  officeCode VARCHAR(10) REFERENCES Offices(officeCode) ,
+  reportsTo INTEGER ,
+  jobTitle VARCHAR(50) 
+);
+==============================================================
+
+NOT NULL
+=================================================================
+CREATE TABLE Offices (
+  officeCode VARCHAR(10) PRIMARY KEY,
+  city VARCHAR(50) NOT NULL,
+  phone VARCHAR(50) NOT NULL,
+  addressLine1 VARCHAR(50) NOT NULL,
+  addressLine2 VARCHAR(50) NULL,
+  state VARCHAR(50) NULL ,
+  country VARCHAR(50) NOT NULL,
+  postalCode VARCHAR(15) NOT NULL ,
+  territory VARCHAR(10) NOT NULL );
+===================================================================
+Unique key
+=============================
+
+CREATE TABLE Products (
+  productCode VARCHAR(15) PRIMARY KEY,
+  productName VARCHAR(70) ,
+  productLine VARCHAR(50) ,
+  productScale VARCHAR(10) ,
+  productVendor VARCHAR(50) ,
+  productDescription varchar(50) UNIQUE,
+  quantityInStock SMALLINT ,
+  buyPrice DOUBLE ,
+  MSRP DOUBLE 
+);
+
+=================================================================
+Check Constraints
+===========================
+CREATE TABLE Employees (
+  employeeNumber INTEGER PRIMARY KEY,
+  lastName VARCHAR(50) ,
+  firstName VARCHAR(50) ,
+  extension VARCHAR(10) ,
+  email VARCHAR(100) ,
+  officeCode VARCHAR(10) REFERENCES Offices(officeCode),
+  reportsTo INTEGER ,
+  jobTitle VARCHAR(50),
+ CONSTRAINT  extension_chk  CHECK (extension LIKE 'x%')
+);
+============================================================
+case Study
+============
+CREATE TABLE Course_Info
+(
+Course_code VARCHAR(20) PRIMARY KEY, 
+Course_name  VARCHAR(20)   NOT NULL, 
+Course_description  VARCHAR(250), 
+Course_start_date  DATE, 
+Course_duration INT, 
+No_of_participants INT, 
+Course_type CHAR(3)
+);
+=========================================================
+
+CREATE TABLE Student_Info
+(
+Student_id VARCHAR(10) PRIMARY KEY,
+First_name VARCHAR(20),
+Last_name VARCHAR(25),
+Address VARCHAR(150)
+);
+===========================================================
+CREATE TABLE student_courses
+   (
+   Student_id VARCHAR (10),
+   Course_code VARCHAR (20),
+   CONSTRAINT fk_student_id FOREIGN KEY (student_id)
+   REFERENCES student_info(student_id),
+   CONSTRAINT fk_course_code FOREIGN KEY(course_code)
+   REFERENCES course_info(course_code)
+   );
+=========================================================
+CREATE TABLE course_fees
+(
+Course_code VARCHAR (20), 
+Base_fees INT (10),
+Special_fees INT(10),
+Discount INT (5),
+CONSTRAINT fk_course_code2 FOREIGN KEY(course_code) 
+REFERENCES course_info(course_code), 
+CONSTRAINT chk_base_fees CHECK(base_fees > 0 AND base_fees>special_fees), 
+CONSTRAINT chk_discount CHECK(discount >=5 AND discount <=15) 
+);
+=======================================================================
+
+  INSERT into offices2 values(123, "TN","9879873245","OMR","Kelambakkam",
+  "TN","India","60061", "TN");
