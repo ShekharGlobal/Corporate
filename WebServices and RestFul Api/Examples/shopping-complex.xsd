@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="www.cognizant.com/schema"
+	xmlns="www.cognizant.com/schema">
+	<xs:attribute name="id" type="xs:integer" />
+	<xs:complexType name="productInfo">
+		<xs:all>
+			<xs:element name="name" type="xs:string" />
+			<xs:element name="description" type="xs:string"
+				default="generic product" />
+			<xs:element name="type" type="xs:string" />
+			<xs:element name="quantity" type="xs:integer" />
+		</xs:all>
+		<xs:attribute ref="id" />
+	</xs:complexType>
+	<xs:complexType name="multipleproducts">
+		<xs:sequence>
+			<xs:element name="product" type="productInfo"
+				maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="products" type="multipleproducts" />
+</xs:schema>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT products (product+)>
+<!ELEMENT product (name, description, type, quantity)>
+<!ATTLIST product id ID #REQUIRED>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT description (#PCDATA)>
+<!ELEMENT type (#PCDATA)>
+<!ATTLIST type comments CDATA #IMPLIED>
+<!ELEMENT quantity (#PCDATA)>

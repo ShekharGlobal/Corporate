@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Earth xmlns="http://www.cognizant.com">
+    <Continent>
+        <name>Asia</name>
+        <description>Asian continent</description>
+        <Countries>
+            <comment>Number of countries</comment>
+            <number>65</number>
+        </Countries>
+    </Continent>
+    <Continent>
+        <name>Africa</name>
+        <description>African continent</description>
+        <Countries>
+            <comment>Number of countries</comment>
+            <number>45</number>
+        </Countries>
+    </Continent>
+</Earth>

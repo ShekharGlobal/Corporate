@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<products xmlns="www.cognizant.com/schema">
+    <product id="1">
+        <name>Cheetos</name>
+        <description>Fritos Baked Puffs</description>
+        <type>Grocery</type>
+        <quantity>25</quantity>
+    </product>
+    <product id="2">
+        <name>Levi Jeans</name>
+        <description>Model LF28</description>
+        <type>Apparel</type>
+        <quantity>10</quantity>
+    </product>
+    <product id="3">
+        <name>Sony Vaio Laptop</name>
+        <description>High-performance laptop</description>
+        <type>Electronics</type>
+        <quantity>5</quantity>
+    </product>
+    <product id="4">
+        <name>Generic Product</name>
+        <!-- Description will take the default value -->
+        <type>Grocery</type>
+        <quantity>100</quantity>
+    </product>
+</products>

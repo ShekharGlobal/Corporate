@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://www.cognizant.com"
+    xmlns="http://www.cognizant.com">
+
+    <!-- Global Attribute Definition -->
+    <xs:attribute name="comments" type="xs:string" />
+
+    <!-- Continent Info Complex Type -->
+    <xs:complexType name="ContinentInfo">
+        <xs:sequence>
+            <xs:element name="ContinentName" type="xs:string" />
+            <xs:element name="Description" type="xs:string" />
+            <xs:element name="Countries" type="xs:integer" />
+        </xs:sequence>
+        <!-- Local Attribute Definition for Continent Info -->
+        <xs:attribute ref="comments" />
+    </xs:complexType>
+
+    <!-- Earth Info Complex Type -->
+    <xs:complexType name="EarthInfo">
+        <xs:sequence>
+            <xs:element name="Continent" type="ContinentInfo" maxOccurs="unbounded" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Root Element Definition -->
+    <xs:element name="Earth" type="EarthInfo" />
+
+</xs:schema>
