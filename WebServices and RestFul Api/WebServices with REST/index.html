@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RESTful API with Fetch</title>
+</head>
+<body>
+<h1>Users</h1>
+<ul id="user-list"></ul>
+<script>
+async function fetchUsers() {
+  const response = await fetch('http://localhost:3000/users');
+  const users = await response.json();
+
+  const userList = document.getElementById('user-list');
+  users.forEach(user => {
+    const listItem = document.createElement('li');
+    listItem.textContent = `${user.id}: ${user.name}`;
+    userList.appendChild(listItem);
+  });
+}
+
+// Call the function to fetch users on page load
+fetchUsers();
+</script>
+</body>
+</html>
