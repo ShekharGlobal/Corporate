@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+	<session-factory>
+
+		<property name="hbm2ddl.auto">update</property>
+		<property name="dialect">org.hibernate.dialect.MySQL8Dialect</property>
+
+		<property name="connection.url">jdbc:mysql://localhost:3306/mydb</property>
+		<property name="connection.username">root</property>
+		<property name="connection.password">root</property>
+		<property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+
+		<property name="show_sql">true</property>
+		
+		 <!--<property name="hibernate.cache.use_second_level_cache">true</property>
+        <property name="hibernate.cache.use_query_cache">true</property>
+       <property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
+		 <property name="hibernate.cache.region.factory_class">org.hibernate.cache.jcache.JCacheRegionFactory</property>-->
+		 
+		 <property name="hibernate.format_sql">true</property>
+
+        <!-- Specify the naming strategy -->
+        <property name="hibernate.id.new_generator_mappings">true</property>
+
+	<!-- 	 <mapping class="com.cdac.orm.Employee"></mapping>
+		 <mapping class="com.cdac.orm.Department"></mapping>-->
+		 
+        <!-- <mapping class="com.cdac.orm2.Product"></mapping>-->
+    <!-- <mapping class="com.cdac.orm.Employees"></mapping>-->
+      <!--<mapping resource="com/cdac/orm/Developer.hbm.xml"/>-->
+     <!--<mapping class="com.cdac.orm.Employees"></mapping>-->
+
+	<!--	<mapping class="com.cdac.orm.Person"></mapping> 
+		<mapping class="com.cdac.orm.Address"></mapping>-->
+		
+	<!--<mapping class="com.cdac.orm.User"></mapping> 
+		<mapping class="com.cdac.orm.OrderItem"></mapping> -->
+		
+	<!--<mapping class="com.mphasis.orm.joined.Employee"/>
+        <mapping class="com.mphasis.orm.joined.FullTimeEmployee"/>
+        <mapping class="com.mphasis.orm.joined.PartTimeEmployee"/>-->
+
+	<!--	<mapping class="com.cdac.orm.Department"></mapping> 
+		<mapping class="com.cdac.orm.Employee"></mapping> -->
+
+
+		<!--<mapping class="com.cdac.orm.Student"></mapping>
+		<mapping class="com.cdac.orm.MarksDetails"></mapping> -->
+
+		<!--<mapping class="com.cdac.hql.Item"></mapping> -->
+		
+		<!--<mapping class="com.mphasis.hqcl.User"></mapping>-->
+		<!--<mapping class="com.mphasis.orm.logging.Book"/>-->
+		
+		<!--<mapping class="com.mphasis.orm.hql.Employeehql"/>-->
+		
+		<mapping class="com.mphasis.orm.manytomany.Student"/>
+		<mapping class="com.mphasis.orm.manytomany.Course"/>
+		
+		
+
+
+	</session-factory>
+
+</hibernate-configuration>  
