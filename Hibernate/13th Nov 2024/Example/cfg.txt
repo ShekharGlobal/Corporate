@@ -1,0 +1,7 @@
+<!--	<mapping class="com.coforge.annotation.User" />
+		<mapping class="com.coforge.annotation.Event" />-->
+
+	<!--	<mapping class="com.coforge.query.User" />-->
+		
+		<mapping class="com.coforge.bionetoone.User"/>
+        <mapping class="com.coforge.bionetoone.Address"/>
