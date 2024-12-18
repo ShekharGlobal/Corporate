@@ -1,0 +1,4 @@
+<context-param>
+		<param-name>initialCount</param-name>
+		<param-value>0</param-value>
+	</context-param>
