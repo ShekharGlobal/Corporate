@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Page</title>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        form {
+            margin: 50px;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input[type="text"], input[type="password"] {
+            margin-bottom: 10px;
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            padding: 8px 16px;
+        }
+    </style>
+</head>
+<body>
+    <form action="LoginServlets" method="post">
+        <label for="username">UserName:</label>
+        <input type="text" id="username" name="username"/> <br/>
+        
+        <label for="pass">Password:</label>
+        <input type="password" id="pass" name="pass"/> <br/>
+        
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location"/> <br/>
+        
+        <input type="submit" name="sub" value="Login">
+    </form>
+</body>
+</html>
