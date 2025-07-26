@@ -1,0 +1,48 @@
+http://localhost:2026/bank/customer
+
+{
+  "customerId": 1,
+  "customerName": "Alice Smith",
+  "customerContactNumber": 9876543210
+}
+
+
+=======================================
+
+http://localhost:2026/bank/customer/1/loan
+[
+  {
+    "loanNumber": 101,
+    "loanType": "Home Loan",
+    "loanAmount": 500000.0,
+    "repaymentYears": 10,
+    "monthlyDue": 5200.0
+  },
+  {
+    "loanNumber": 102,
+    "loanType": "Car Loan",
+    "loanAmount": 300000.0,
+    "repaymentYears": 5,
+    "monthlyDue": 7500.0
+  }
+]
+
+===============================================
+
+Without @JsonIgnore
+You get a circular reference:
+
+Loan → Customer → Loan → Customer → ... (infinite loop)
+
+This leads to serialization errors or oversized/infinite JSON.
+
+✅ Benefits of Using @JsonIgnore
+Benefit	Description
+Prevents infinite recursion	Useful in bi-directional relationships
+Controls API response payload	Hides sensitive or unnecessary data from API consumers
+Reduces payload size	Keeps responses clean and lightweight
+
+⚠️ Note
+Use @JsonIgnore only when you are sure the field is not needed in your JSON output/input.
+
+If you still want to serialize it in one direction (e.g., parent → child but not child → parent), then @JsonManagedReference / @JsonBackReference is a better option.
