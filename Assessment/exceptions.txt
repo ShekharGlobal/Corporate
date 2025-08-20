@@ -1,0 +1,24 @@
+On HackerRank (and even in normal Spring Boot projects), the return type void vs ResponseEntity<T> difference can matter:
+
+If the stub code said void, but the test cases only care about the HTTP response (status + body), then changing it to ResponseEntity may actually help, because now you can control both the status code and the response body.
+
+HackerRank’s test harness usually doesn’t reflectively check for the exact method signature unless they lock it down. Instead, they just send HTTP requests to your controller and assert the responses. That’s why your change still worked.
+
+
+If you skip the DTO step and just let the controller deserialize JSON directly into the entity, then call the service with that entity → it still works because Jackson can map JSON directly to the entity.
+
+The test cases usually just care that:
+
+The endpoint accepts the input format correctly.
+
+The correct response is produced.
+
+Any persistence works as expected.
+
+So if the service layer expects an Entity instead of a DTO, Spring will still inject it properly, and the tests will pass.
+
+Test cases only care about I/O
+
+HackerRank checks: request in → response out.
+
+It doesn’t inspect whether you kept a DTO boundary, used a converter, or followed strict layering.
